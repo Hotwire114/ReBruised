@@ -1,0 +1,10 @@
+# <address> <runtime handler name>: bind an SDK function to a runtime handler under another name.
+# The signature scan names the internal loaders (_sceSifLoadModule ...); the runner exports the handlers under the
+# public names, and Tekken 4 binds the same internal addresses the same way (its sceSifLoadModuleBuffer is also
+# sceSifLoadFileReset + 0x38). Guest copies spin in _lf_bind waiting for the IOP LOADFILE server (SID 0x80000006).
+0x001CC218 sceSifLoadModule
+0x001CBC08 sceSifLoadModuleBuffer
+0x001CC480 sceSifLoadElfPart
+# sceMpegIsEnd (lw v1,0x40(a0); lw v0,0(v1)): not matched by the scan. As game code it reads a field the runtime's
+# host MPEG decoder never sets, so the movie loop (0x16c0a0) only ended by luck. The host version tracks EOF.
+0x001091C0 sceMpegIsEnd

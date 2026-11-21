@@ -1,0 +1,9 @@
+# Ghidra "functions" that are data (one RWX segment, so Ghidra cannot tell .data from .text).
+# make_config.py drops these starts from the function map. Evidence: tools/code_extent.py, tools/refs_into.py.
+0x00234870  # offset table 0,8,0x10,0x18,...; no J/JAL into 0x234870-0x239cc8, only lui/addiu data addresses
+# Kernel-mode TLB code the SDK's InitTLB copies into kernel memory (uses TLBWI); never run by the runtime,
+# and PS2Runtime::handleTLBWI is not exported by the prebuilt runner.
+0x00239CEC
+0x00239E70
+0x00239EE8
+0x00239F30

@@ -1,0 +1,17 @@
+# ReBruised source tracking (added 2026-11-17). Game data and build output stay out.
+/*
+!/.gitignore
+!/port/
+!/tools/
+!/config/
+!/source/
+/source/fetch/
+!/PROGRESS.md
+!/README.md
+!/LICENSE
+!/RELEASE_NOTES.md
+!/media/
+!/settings.example.ini
+!/*.cmd
+__pycache__/
+!/HANDOVER.md

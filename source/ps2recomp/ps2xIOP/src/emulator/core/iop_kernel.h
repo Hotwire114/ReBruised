@@ -1,0 +1,137 @@
+#pragma once
+
+#include "iop_cpu.h"
+
+#include <cstddef>
+#include <cstdint>
+#include <map>
+
+namespace ps2x::iop::detail
+{
+    class IopMemory;
+
+    enum class IopThreadState : uint8_t
+    {
+        Dormant,
+        Ready,
+        Running,
+        Sleep,
+        Delay,
+        Semaphore,
+        EventFlag,
+        Suspended,
+        Dead,
+    };
+
+    struct IopThread
+    {
+        int id = 0;
+        IopThreadState state = IopThreadState::Dormant;
+        IopCpuState cpu;
+        uint32_t entry = 0;
+        uint32_t stackBase = 0;
+        uint32_t stackSize = 0;
+        uint32_t priority = 0x40;
+        uint32_t initialPriority = 0x40;
+        uint32_t option = 0;
+        uint32_t attr = 0;
+        uint64_t wakeCycle = 0;
+        int waitId = 0;
+        uint32_t waitBits = 0;
+        uint32_t waitMode = 0;
+        uint32_t waitResultAddress = 0;
+        int wakeupCount = 0;
+        // Intrusive queues. Identity is (priority, id) for ready and (wakeCycle, id) for delay.
+        IopThread *readyLink = nullptr;
+        IopThread *delayLink = nullptr;
+        bool queuedReady = false;
+        bool queuedDelay = false;
+    };
+
+    class IopKernel
+    {
+    public:
+        explicit IopKernel(IopMemory &memory) noexcept;
+
+        void reset();
+
+        [[nodiscard]] bool dispatchThreadImport(uint16_t ordinal, IopCpuState &cpu, uint64_t currentCycle);
+        [[nodiscard]] bool dispatchSemaphoreImport(uint16_t ordinal, IopCpuState &cpu);
+        [[nodiscard]] bool dispatchEventImport(uint16_t ordinal, IopCpuState &cpu);
+
+        [[nodiscard]] int createInternalEventFlag(uint32_t attr, uint32_t option, uint32_t bits);
+        [[nodiscard]] bool setInternalEventFlag(int id, uint32_t bits);
+
+        void sleepCurrent(IopCpuState &cpu);
+        void delayCurrentUntil(uint64_t wakeCycle, IopCpuState &cpu);
+
+        [[nodiscard]] IopThread *beginNextReady(uint64_t currentCycle);
+        [[nodiscard]] uint64_t nextWakeCycle(uint64_t fallback) const;
+        void endTimeslice(IopThread &thread, uint32_t returnSentinel);
+        void cleanupDeadThreads();
+        void terminateThreadsInRange(uint32_t base, uint32_t size);
+
+        [[nodiscard]] size_t threadCount() const noexcept { return m_threads.size(); }
+        // Changes whenever a thread enters the ready queue (or on reset): an idle-skip cache sealed
+        // under an older value is stale.
+        [[nodiscard]] uint64_t schedEpoch() const noexcept { return m_schedEpoch; }
+
+    private:
+        struct Semaphore
+        {
+            int id = 0;
+            uint32_t attr = 0;
+            uint32_t option = 0;
+            int current = 0;
+            int maximum = 1;
+        };
+
+        struct EventFlag
+        {
+            int id = 0;
+            uint32_t bits = 0;
+            uint32_t attr = 0;
+            uint32_t option = 0;
+        };
+
+        [[nodiscard]] bool referThreadStatus(int id, uint32_t outputAddress);
+        void wakeOneSemaphore(int id);
+        [[nodiscard]] static bool eventSatisfied(const EventFlag &event, uint32_t bits, uint32_t mode);
+        void wakeEventWaiters(EventFlag &event);
+        void assignState(IopThread &thread, IopThreadState state);
+        void insertReady(IopThread &thread);
+        void removeReady(IopThread &thread);
+        void insertDelay(IopThread &thread);
+        void removeDelay(IopThread &thread);
+        void promoteDueDelays(uint64_t currentCycle);
+
+        IopMemory &m_memory;
+        std::map<int, IopThread> m_threads;
+        std::map<int, Semaphore> m_semaphores;
+        std::map<int, EventFlag> m_eventFlags;
+        uint32_t m_nextThreadId = 1;
+        uint32_t m_nextSemaphoreId = 1;
+        uint32_t m_nextEventFlagId = 1;
+        IopThread *m_currentThread = nullptr;
+        IopThread *m_readyHead = nullptr;
+        IopThread *m_delayHead = nullptr;
+        uint64_t m_nextDelayWake = ~uint64_t{0};
+        uint64_t m_schedEpoch = 0;
+
+    public:
+        // Rollback: threads (with their CPU states), kernel objects, queues (links kept as thread ids).
+        struct SavedState
+        {
+            std::map<int, IopThread> threads;
+            std::map<int, std::pair<int, int>> links; // thread id -> (ready link id, delay link id), 0 = none
+            std::map<int, Semaphore> semaphores;
+            std::map<int, EventFlag> eventFlags;
+            uint32_t nextThreadId = 1, nextSemaphoreId = 1, nextEventFlagId = 1;
+            int currentId = 0, readyHeadId = 0, delayHeadId = 0;
+            uint64_t nextDelayWake = ~uint64_t{0};
+            uint64_t schedEpoch = 0;
+        };
+        void saveState(SavedState &out) const;
+        void loadState(const SavedState &in);
+    };
+}

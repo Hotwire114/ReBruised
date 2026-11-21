@@ -1,0 +1,4 @@
+# Function ranges Ghidra got wrong: <start> <end (exclusive)>. make_config.py rewrites these rows of the map.
+# 0x25e430 is the last C++ static constructor (called from crt0 0x100d34 through the .ctors table at 0x25e470).
+# It ends in `j 0x1e6490` at 0x25e45c + delay slot; Ghidra ran it to the end of the file (0x261200).
+0x0025E430 0x0025E464

@@ -1,0 +1,32 @@
+# SDK names make_config.py never binds to runtime handlers: the game's own recompiled code runs for them.
+# newlib malloc family: the game's allocator grows its heap with its own sbrk from _end (0x2AA200); the runtime's
+# host malloc would allocate from the runtime heap (0x1C00000-0x1F00000, tools/patch_generated.py), and mixing the
+# two (e.g. a host malloc_extend_top or _Balloc beside the guest allocator) splits the heap.
+malloc
+free
+calloc
+realloc
+_malloc_r
+_free_r
+_calloc_r
+_realloc_r
+_memalign_r
+_malloc_trim_r
+malloc_extend_top
+__malloc_lock
+__malloc_unlock
+_Balloc
+_Bfree
+# sceGsSetDefLoadImage fills a descriptor that the game's sceGsExecLoadImage (not matched by the signature scan,
+# so guest code) then sends: a host SetDefLoadImage beside a guest ExecLoadImage left every texture upload empty
+# (index textures all 0, no CLUT). Both run as game code.
+sceGsSetDefLoadImage
+sceGsSetDefStoreImage
+# libsdr remote (EE side of SDRDRV.IRX): the runtime's sceSdRemote is a host stub without real transfers or the
+# transfer-end callback; the game waits for that callback (0x2612a4 state, FUN_001244f0) after the logos. As game
+# code these go over SIF RPC to the real SDRDRV running on the emulated IOP.
+sceSdRemote
+sceSdRemoteInit
+sceSdTransToIOP
+# With the prebuilt runner (tools/rebuild.ps1) make_config.py also drops every name the runner does not export;
+# the program build (tools/build_program.ps1, BNB_FULL_RUNTIME=1) has all handlers.

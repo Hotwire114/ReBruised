@@ -1,0 +1,373 @@
+{
+  "head": "eb8688b2fd191129f103a39543002c005b33409c",
+  "patches": [
+    {
+      "name": "01-ps2xRuntime-dmac-mfifo.patch",
+      "sha256": "9bf16921980317465b867c1b1ecb0108d6645716e50bf3549338bded1b8ae356"
+    },
+    {
+      "name": "02-ps2xRuntime-dma-fixes.patch",
+      "sha256": "242d4e5329c904a0c0d3b7d5a40f493d566dbb291e8375eb984ec0843bbf60c9"
+    },
+    {
+      "name": "03-ps2xRuntime-display-line-repeat.patch",
+      "sha256": "30954918d5bed0f953648ba00500692637c4e5eb5f8ff2c7c3d723e5b8a83200"
+    },
+    {
+      "name": "04-ps2xRuntime-mpeg-create-clears-end.patch",
+      "sha256": "f120200c59eb7a528d18316691c15d6b4376153a06247730f16b927e1b4fa299"
+    },
+    {
+      "name": "05-ps2xRuntime-sprite-edge-coverage.patch",
+      "sha256": "d72a1cd97fc23fa33912c1a60ec33a4a1e29bce308552e5f343b0ad9a567db3c"
+    },
+    {
+      "name": "06-ps2xRuntime-frame-mode-field-offset.patch",
+      "sha256": "1cd491036e3b870b9d31c974255a1844f1a2df8f8cf553579e1f73de0e19a7bc"
+    },
+    {
+      "name": "07-ps2xRuntime-sprite-vertex-order.patch",
+      "sha256": "bc319e6450b4f9961175cf2a58383f7453c7f4ebc05e2494a8bd94af6344d20b"
+    },
+    {
+      "name": "08-ps2xRuntime-sprite-uv-at-pixel.patch",
+      "sha256": "ff4c510f29d29360a0eeb70418e12c3638df763dc9f67beab097c20a8b61171d"
+    },
+    {
+      "name": "09-ps2xRuntime-gs-cpu-speed-and-threads.patch",
+      "sha256": "3df5841e69163138db74bade69a6daa68b38b0c910b0062029c043e09f0d8550"
+    },
+    {
+      "name": "10-ps2xRuntime-ipu-intra-picture-decode.patch",
+      "sha256": "c76919012a1c2391b24f7ea612f0963e45258bbbde51df321f10181fa1b12275"
+    },
+    {
+      "name": "11-native-vu1.patch",
+      "sha256": "9558b6296a4fc256c4e822025bde76a7a899bd5892030b88b07e3c70864b1db5"
+    },
+    {
+      "name": "12-ps2xRuntime-vif1-carry-and-mfifo-wait.patch",
+      "sha256": "93c8178b20be059cbb6c5f70665f93e0ee01488139b0c205efa89891a2269223"
+    },
+    {
+      "name": "13-ps2xRuntime-pad-empty-port-disconnected.patch",
+      "sha256": "5c8ee0a150fc843e3ed6c67258c62ddb47651c6f42c5ce338f5d6c7288595485"
+    },
+    {
+      "name": "14-ps2xRuntime-gs-threads-async.patch",
+      "sha256": "300178e77d023e7cffbf0f975c2ff2ff1d466d71a9e514d0932905e2eb8dcd06"
+    },
+    {
+      "name": "15-ps2xRuntime-game-thread-copies.patch",
+      "sha256": "35164b80fe36a17e3d2f4c36ba81b1271a70ca423093f534d08004abde491a62"
+    },
+    {
+      "name": "16-ps2xRecomp-sqrt-s-uses-ft.patch",
+      "sha256": "0590d45dce7a39a8b724ab308fd1a7a4862df3482382e7ed2934f36f9a0dfb70"
+    },
+    {
+      "name": "17-ps2xRecomp-ee-fpu-vu0-macro-semantics.patch",
+      "sha256": "d6d81617386533797ee1c4561f5885893275f21440884b80c0b2c901725affcb"
+    },
+    {
+      "name": "18-ps2xRuntime-gs-throughput.patch",
+      "sha256": "a2701ad08e51f193d4fb7ebd8ffd53ce336b0a47a90d26557e74e6691e46c847"
+    },
+    {
+      "name": "19-ps2xIOP-sound-and-scheduler.patch",
+      "sha256": "cc7a46e19a9d01e59354e65b18533e4d9d7dc0fe4daeec4685ffea418d70dacc"
+    },
+    {
+      "name": "20-ps2xRuntime-gs-review-fixes-and-sound-merge.patch",
+      "sha256": "5faaf34196c1c7350fd288800b647e6a86b25afd053b7804e651b8f42395b3eb"
+    },
+    {
+      "name": "21-ps2xIOP-idle-skip-cache.patch",
+      "sha256": "ab656d6dcafb3893c4e6533c5d4100ac1393aeb6ffbb1cf976c569e03abd3ef6"
+    },
+    {
+      "name": "22-ps2xRuntime-gs-gl-backend.patch",
+      "sha256": "8c1caa52e0a307030b18c1785333cf95623c534e7455a0da59d6c9e5af90d6c3"
+    },
+    {
+      "name": "23-ps2xRuntime-gs-gl-tekken-fixes.patch",
+      "sha256": "9887ea2fd2be1ec53dfcb48083cec3010bc23d3999391191e69f674352664fc0"
+    },
+    {
+      "name": "24-ps2xRuntime-gs-gl-fight-speed.patch",
+      "sha256": "c197bba728222f8388ab9731257951dff317a7a4e757d164bdcabcfa09bfc466"
+    },
+    {
+      "name": "25-ps2xRuntime-gs-gl-clut-batching.patch",
+      "sha256": "6b9aee725fca9f3932eafd2113eb4eee24e7f4f46842ebb5d20120e0510a0b98"
+    },
+    {
+      "name": "26-ps2xRuntime-gs-gl-stage-textures.patch",
+      "sha256": "e3c76dd58aa8dce542bb9de50cfbbf445b118efdc2daae85c03fd7374d96333e"
+    },
+    {
+      "name": "27-ps2xRuntime-gs-gl-rt-uploads.patch",
+      "sha256": "dcec8209e24f56a02ceb404bcd0ae33db82d2e514f8d999b31f8cc7bb773b408"
+    },
+    {
+      "name": "28-ps2xRuntime-gs-gl-row-decode-hash.patch",
+      "sha256": "488793f66abc4865814714033e0e0100080d0c17df1aabb3dc4587caa9a2f8e6"
+    },
+    {
+      "name": "29-ps2xRuntime-keyboard-layout.patch",
+      "sha256": "d426869effbaedb193ea6330daa0fce961f04a19669ca306a0fec6959289001a"
+    },
+    {
+      "name": "30-ps2xRuntime-audio-device-pull.patch",
+      "sha256": "e3fab4bbed6bbd91384f64ba31a6e41c2035cb6e3035e3cf42c0645bf81e734d"
+    },
+    {
+      "name": "31-ps2xRuntime-input-latency.patch",
+      "sha256": "29276ca2786b5761db051423d6430fb014492e7afa7c1a9e1c7cff7fe7da685c"
+    },
+    {
+      "name": "32-ps2xRuntime-no-escape-quit.patch",
+      "sha256": "36358e173fe8cb73dd23e5d49517cff221aa9c69dbc2cc0901af88b63cc2713c"
+    },
+    {
+      "name": "33-ps2x-SIF-EE-sceSifSendCmd-payload-t0-t1-to-IOP-RAM-pack.patch",
+      "sha256": "8a1b534b9c995d3d8a378500e1194ae007a3d5affc17f68b87c244fb7f5eda85"
+    },
+    {
+      "name": "34-ps2x-ps2xIOP-deliver-the-SPU2-interrupt-to-libsd-s-hand.patch",
+      "sha256": "c0cf20993871716f20f951a08a6d971003b9ef3137284ff2fcd2062a3f644340"
+    },
+    {
+      "name": "35-ps2x-ps2xIOP-sound-debug-aids-env-gated.patch",
+      "sha256": "96c24aaa175eaec72bdd62b5aaecdc4bd0652e72c6e2a0e973f183a5a54ee55c"
+    },
+    {
+      "name": "36-ps2xIOP-cdvd-ioman-search-files-in-the-real-image.patch",
+      "sha256": "9b0151764e50f9eeb7d227d6048ef65567124b89185df24a3ce24e9ff08e0864"
+    },
+    {
+      "name": "37-Rollback-hooks-frame-boundary-hook-machine-snapsho.patch",
+      "sha256": "f219e93e6ddbd1ff72ab0e8bf4d5ecd6e1b24314fac9ab9653c232cbbf334d71"
+    },
+    {
+      "name": "38-Rollback-phase-2-re-simulation-cuts-GS-draw-upload.patch",
+      "sha256": "f45f6eb19495e5efbe3afa22432b70d237917e230e2e536291134c9b02b53b24"
+    },
+    {
+      "name": "39-Rollback-sceSifSendCmd-DMA-ids-in-the-snapshot-no.patch",
+      "sha256": "b4ae66bb32614baeb2a992e53ab824a9617901cf146cf3cad37df0f3e10a26e6"
+    },
+    {
+      "name": "40-Rollback-VU1-cut-idle-loop-skipping-host-profile-c.patch",
+      "sha256": "ccb165c8a9d70f6254d997e6032a482e504092f49c99a108cbf4a84ab69d3cee"
+    },
+    {
+      "name": "41-Rollback-the-IOP-in-the-snapshot-SPU2-output-muted-i.patch",
+      "sha256": "a83240a3a8e541a8aaa41542ee321c0bc2118d5fce67c0a792c46e90d5416e17"
+    },
+    {
+      "name": "42-Netplay-hooks-host-schedule-shift-host-pad-sampling-.patch",
+      "sha256": "766b301c3c71a22ada6aad5f53f795db6d741c751f4e7073500d663680d97484"
+    },
+    {
+      "name": "43-Perf-counters-PS2X_PERF_STATS-per-second-EE-busy-GS-.patch",
+      "sha256": "b63d9ff0bd1c55bd79333b5e5bcedafeafc5c9c97f9129ea7ac92edf9d3e111a"
+    },
+    {
+      "name": "44-GS-worker-FINISH-Flush-and-the-double-buffer-clears-.patch",
+      "sha256": "cb0c05e8b09fd39a7be801faef657f9cdb18fefeefbbeb981b4aeed047c10b88"
+    },
+    {
+      "name": "45-GL-backend-upload-invalidation-walks-the-valid-textu.patch",
+      "sha256": "6a7769c4e61b4088e0a666953d2d20aaa5194487e298b993fdeac73539703e05"
+    },
+    {
+      "name": "46-GL-backend-redundant-state-filter-batch-key-without-.patch",
+      "sha256": "1c4c6b39dc1dd92f4b0318bb64f757f206585a6a7cd49e39185c2a141affee38"
+    },
+    {
+      "name": "47-Perf-counters-GS-worker-round-trips-by-caller-drains.patch",
+      "sha256": "54cb9cbffb9619c39dd9e876f692f7af31f88283968727ec92422d3b6685681f"
+    },
+    {
+      "name": "48-GL-backend-padding-free-batch-key-re-uploads-of-the-.patch",
+      "sha256": "8943e74e63e6f7c6976f586a4f79c943671a186e4e68ec142cce38c07c5230ac"
+    },
+    {
+      "name": "49-Shared-presentation-the-window-draws-the-GS-picture-.patch",
+      "sha256": "84d16a1245783252b82080a2ec0a77f39b30b6ad5af10be6c99fcd4e070e44fe"
+    },
+    {
+      "name": "50-GL-backend-index-textures-keep-up-to-8-earlier-decod.patch",
+      "sha256": "10b4b513b4f8d6678d500048c6160ce554d65017cd5174db522226a9ec6366a1"
+    },
+    {
+      "name": "51-ps2xIOP-TEKKEN4_SOUND_TRACE-read-once-no-static-guar.patch",
+      "sha256": "2759e71954e11a69e1aa52f439b0e4045c167c0780e6b72f257cc90e709f1a80"
+    },
+    {
+      "name": "52-GL-backend-tall-index-textures-decoded-only-in-the-r.patch",
+      "sha256": "1050d19c30d620128704ce6b3aaaca4cacdff1da6638ca6af304c77343d8b291"
+    },
+    {
+      "name": "53-GL-backend-partial-index-textures-in-both-axes-REGIO.patch",
+      "sha256": "836bc61408575327e11b780be8013f5a6d29d1251aa00961b161bd5e50b44f6c"
+    },
+    {
+      "name": "54-ps2xIOP-no-output-drain-after-an-IOP-advance-that-mi.patch",
+      "sha256": "3b35d3d05fab820325d6875bd91bdd6afc4616654869df8c83fb7b00b44746bb"
+    },
+    {
+      "name": "55-VU1-round-toward-zero-set-through-MXCSR-instead-of-f.patch",
+      "sha256": "57554184a39cdc8b06f71b2924a4c0130d6d0dc30565bbdf0cb1bc3e44cd98d5"
+    },
+    {
+      "name": "56-GL-backend-same-bytes-upload-check-off-by-default-PS.patch",
+      "sha256": "b19cfef1e3d199e478aa3e5f0b23796292f191e10dc40acbf9bc7469200c2e3c"
+    },
+    {
+      "name": "57-ps2xRuntime-debug-panel-hidden-by-env.patch",
+      "sha256": "b5c7fbea394b52d459eb78882ec0abfb9b03a57f8254b25f856609325e23418e"
+    },
+    {
+      "name": "58-ps2xRuntime-movie-PCM-accounting-frames-played-gaps.patch",
+      "sha256": "d06ae74788b500a0c894822e30d29536ec35f3473756d65d56d19f49dd0f5090"
+    },
+    {
+      "name": "59-ps2xRuntime-MPEG-stub-counts-and-times-the-pictures.patch",
+      "sha256": "3886b777a42126c8b1ae4609c4463e905ce7a1416eb1fe5b8d66169c73153dfa"
+    },
+    {
+      "name": "60-Gamepads-XInput-read-directly-at-pad-read-time-1-ms-.patch",
+      "sha256": "01086d32aeb1b157158bb1087fe072e8e93f40dc51630a0b2b5e497ab062b448"
+    },
+    {
+      "name": "61-Input-latency-frame-chain-instrumentation-vblank-pic.patch",
+      "sha256": "5cbda0efd61cfed473b90c7fb817a5783dbb426748ad77490395879fe7b48fa5"
+    },
+    {
+      "name": "62-Run-ahead-TEKKEN4_RUNAHEAD-1-2-default-off-on-the-ro.patch",
+      "sha256": "f25d760ba7598275c0e9ba4c0de8359bad9609619b30bfe00d91cee077f38cd1"
+    },
+    {
+      "name": "63-Run-ahead-pauses-while-a-movie-uses-the-MPEG-decoder.patch",
+      "sha256": "010592d74640e6e8672fb663d8c5ff27efb2565d062ff0f267190180bc23aa87"
+    },
+    {
+      "name": "64-Presenter-optional-vblank-phase-locked-present-laten.patch",
+      "sha256": "3977cb56f1cd65763a0ad8af66885f12f0b601218c8061aa83001c93493be5fa"
+    },
+    {
+      "name": "65-Presenter-present-2-ms-after-each-guest-vblank-by-de.patch",
+      "sha256": "3a6f2e2769e3a7d44214decf52bac60d68716e98731ac77e81d4875280aed6b1"
+    },
+    {
+      "name": "70-GL-backend-sprites-cover-exactly-the-GS-s-pixels-at-.patch",
+      "sha256": "ffc64f40cf251c0f3bcdf106c75f2281fa755b0dab1af5ff3825aff18e2848f3"
+    },
+    {
+      "name": "71-Graphics-options-internal-resolution-steps-FXAA-SSAA.patch",
+      "sha256": "3e319bb792353dd632efe00f77af65f7b3a44c25f8f5adb0f6d588bea00409b0"
+    },
+    {
+      "name": "72-GL-backend-uploads-into-render-targets-at-any-intern.patch",
+      "sha256": "5be8c02effafe400fd4a6a90e8bb0acc08643e6da3d41e8a927cf18515ec4d28"
+    },
+    {
+      "name": "73-Fullscreen-option-TEKKEN4_FULLSCREEN-F11-and-anisotr.patch",
+      "sha256": "04462b87e81378d22153488a707dcd2817f73e160b64f4361d09bff67703b2b4"
+    },
+    {
+      "name": "74-Rollback-incremental-RDRAM-snapshots.patch",
+      "sha256": "90882092fca3275995822224c2ba955062fbff4f21d774bd60f187ea9df331a6"
+    },
+    {
+      "name": "80-Perf-counters-frames-line-per-second-with-present-.patch",
+      "sha256": "47bc74a51fc1425529db35415bbe2e2bfd6ea03e3221159be1305e0620bbcdc0"
+    },
+    {
+      "name": "81-EE-scheduler-vblank-catch-up-capped-at-2-frames-in.patch",
+      "sha256": "5d99a20be28eba9af3d4bfc63d1f5c923efa330377ed152231edc58cecf4edce"
+    },
+    {
+      "name": "82-EE-pacing-sleep-to-1.5-ms-before-a-host-deadline-t.patch",
+      "sha256": "24550d0d8bd93d1dd609dd4c53fa00e5ff9718a7349e73460c583b2192e677f3"
+    },
+    {
+      "name": "83-Fullscreen-like-T5DR-borderless-window-F11-Alt-Enter.patch",
+      "sha256": "a06fbbf6892ab41355504e5499763c86386bf8438285329f0e13530d9e943efe"
+    },
+    {
+      "name": "84-Intro-movie-at-high-internal-resolution-device-side-.patch",
+      "sha256": "af021d047a9dbcab3d4fa178cc984adceac61a13b8a1b09703cb120349fa4cef"
+    },
+    {
+      "name": "85-Perf-stats-until-exit-and-hitch-log.patch",
+      "sha256": "40c8920c87a1e17f07b2a6cd541497726a1ab17e035462de7ba35f7bb206ba4f"
+    },
+    {
+      "name": "86-Audio-64-ms-device-buffer.patch",
+      "sha256": "f060ea7a7c0bdde65fec5f3ef2c0a00d3f300003d698468f970aebb380381e0e"
+    },
+    {
+      "name": "87-Shared-present-readback-fallback.patch",
+      "sha256": "1e435167264be584433dc5c80a51687f64d43d194eaf62d44eb43faec58b980d"
+    },
+    {
+      "name": "88-Host-overlay-a-game-override-s-2D-layer-over-the-pic.patch",
+      "sha256": "48925f6e2f84669d7938475180a8b49458505bfa394bc4466a236cfaecc9ea17"
+    },
+    {
+      "name": "88-ps2xRuntime-movie-clock-and-device-diagnostics.patch",
+      "sha256": "213d8e9b5597cd57b8442f5e8055c5da3d24fdfb485798185262e2136e1d4936"
+    },
+    {
+      "name": "89-VU1-and-GS-frontend-on-worker-threads-PS2X_VU1_AS.patch",
+      "sha256": "7cb2b0829f2ad7dc34646e1538da99dedbb2474d13ca44bc56fd3b707bc326b4"
+    },
+    {
+      "name": "90-Old-PCs-SSE2-baseline-build-option-OpenGL-4.3-4.6.patch",
+      "sha256": "f66e467ced39f75e7958ef834047b907f8729c332b41cc201c0c125815a8ac98"
+    },
+    {
+      "name": "92-VU-static-recompilation-lifted-microprograms.patch",
+      "sha256": "18ec1614e0f1740232ba3b1277c573d6121ef7116facb88ff30377836f53aa47"
+    },
+    {
+      "name": "93-IOP-idle-fast-path-and-IOP-profile.patch",
+      "sha256": "90fc99443f277218615abf7f714a455a573dee725f757a2b90fc0013a3f3ac58"
+    },
+    {
+      "name": "94-Widescreen-16-9-host-side-GS-squeeze-no-guest-chan.patch",
+      "sha256": "7f9b6a08e78f411e35e6d04882c6987cb50a4e09c946421d6bdbf1fdfb1e77af"
+    },
+    {
+      "name": "95-vu-execution-path-audit.patch",
+      "sha256": "54f7e9a619ad4360b4c25bc30307c597eacf824db5f174539e1c47567477b68b"
+    },
+    {
+      "name": "96-buffered-frame-trace-and-present-timing.patch",
+      "sha256": "1db4afffa1736ec622efad3d7f188c72d6d166bd3fe4d2e60107b84787004a8f"
+    },
+    {
+      "name": "97-iop-runtime-audit.patch",
+      "sha256": "8127f0c8a7544a75de8fa2d7463851a0ce2b4a769a32197d0008e3145728abaf"
+    },
+    {
+      "name": "98-ps2xRuntime-clang-cl-portable-build.patch",
+      "sha256": "7be6e65aaeb99e4ee1276940d7e1cedd04f29f241beefed312f000f2c0bb609b"
+    },
+    {
+      "name": "99-ps2xRuntime-game-dll.patch",
+      "sha256": "fb9001e6544830858a99e5024c1638cef52652940e1ebd84c2d7affd05e09f7a"
+    },
+    {
+      "name": "99-ps2xRuntime-pad-bindings.patch",
+      "sha256": "d28909bd599afa937c66c22c9330f071a693b9252baf3b29e5d50a638d91d85e"
+    },
+    {
+      "name": "99a-ps2xRuntime-online-present-pacing.patch",
+      "sha256": "6961d54579f1c4b171f9a575649685f833acc90280afe45005648d8cc330d8c0"
+    }
+  ]
+}

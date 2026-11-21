@@ -1,0 +1,9 @@
+# VU microprogram entries the lifter's own discovery misses (byte pcs). Addresses only.
+# VU0 stage builder (0x121270): VCALLMSR CMSAR0 0x8f / 0x91 / 0xa1 / 0xbf (instruction units)
+vu0 478
+vu0 488
+vu0 508
+vu0 5f8
+# seen at run time ('no lifted program at pc')
+vu0 70
+vu0 278
